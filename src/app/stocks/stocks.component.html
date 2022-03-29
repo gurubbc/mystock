@@ -1,0 +1,20 @@
+<h2>My Stocks</h2>
+
+<ul class="stocks">
+  <li *ngFor="let stock of stocks" 
+    [class.selected]="stock===selectedStock"
+    (click)="onselect(stock)">
+    <span class="badge">{{stock.id}}</span> {{stock.name}}
+  </li>
+</ul>
+
+<div *ngIf="selectedStock">
+
+  <h2>{{selectedStock.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedStock.id}}</div>
+  <div>
+    <label for="stock-name">Stock name: </label>
+    <input id="stock-name" [(ngModel)]="selectedStock.name" placeholder="name">
+  </div>
+
+</div>
